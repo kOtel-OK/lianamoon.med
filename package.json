@@ -9,6 +9,7 @@
   "author": "kOtel_OK",
   "license": "ISC",
   "dependencies": {
+    "gsap": "^1.20.3",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "scrollmagic": "^2.0.5"
