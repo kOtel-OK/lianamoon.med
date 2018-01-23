@@ -1,8 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
-img {
-  min-width: 100%;
+body {
+  height: 4000px;
+  overflow-x: hidden;
 }
-.bl {
-  opacity: 0;
+
+.main_screen {
+  height: 100vh;
+  background: url("../img/sakura.png") center no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.main_screen_grass img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.main_screen_woman img {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+
+.main_title_wrap {
+  width: 100%;
+  align-self: center;
+}
+
+.main_title_back {
+  margin-left: 10%;
+  background-color: darkgrey;
+  height: 40px;
+  text-align: center;
+  width: 80%;
+}
+
+
+.main_title {
+  color: #000;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 40px;
+  width: 100%;
+  z-index: 1;
+}
+
+
 
