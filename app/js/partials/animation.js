@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			width: '1px'
 		})
 			.set(mainScreenGrass, {
-				y: 162
+				scaleY: 0
 			})
 			.set(mainScreenWoman, {
 				x: -448
@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				autoAlpha:0,
 				rotationY: -180,
 				rotationX: -180,
-				ease:Back.easeOut}, 0.02);
+				ease:Back.easeOut,
+				delay: 0.5}, 0.05);
 
 		return animate;
 	}
@@ -42,15 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		const animate = new TimelineMax();
 
 		animate.to(mainTitleBack, 0.5, {
-				backgroundColor: 'rgba(255, 255, 255, 0.8)',
-				width: '80%'
+				backgroundColor: 'rgba(240, 240, 232, 1)',
+				width: '80%',
+				delay: 0.5
 			}, '+=0.05')
 			.to(mainTitleBack, 0.5, {
 				height: '40px'
-			})
-			.to(mainTitleBack, 0.5, {
-				y: -20
-			}, '-=0.5');
+			});
 
 		return animate;
 	}
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		animate.to(mainScreenGrass, 1, {
 			autoAlpha: 1,
-			y: 0,
+			scaleY: 1,
 			ease: Power2.easeOut
 		})
 			.to(mainScreenGrass, 4, {
@@ -77,17 +76,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		return animate;
 	}
 
-	function mainTitleToNav() {
+	function removeAnimateMeditation() {
 		let controller = new ScrollMagic.Controller(),
-				scene = new ScrollMagic.Scene({
-					duration: 300,
-					triggerElement: mainTitleWrap
+				animate = new TimelineMax();
+
+		animate.to(mainScreenGrass, 1, {
+			scaleY: 0,
+			ease: Power4.easeOut
+		})
+			.to(mainScreenWoman, 1, {
+				x: -448,
+				ease: Power4.easeOut
+			}, '-=1');
+
+		let	scene = new ScrollMagic.Scene({
+			offset: 1,
+			triggerHook: 'onEnter'
 				})
-					.setPin(mainTitleWrap)
+					.setTween(animate)
 					.addIndicators();
 
 		controller.addScene(scene);
-
 	}
 
 	const master = new TimelineMax();
@@ -97,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				.add(animateMainTitle())
 				.add(animateMeditation());
 
-	// mainTitleToNav();
+	removeAnimateMeditation();
 
 });
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,24 +8,26 @@
 body {
   height: 4000px;
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 
 .main_screen {
   height: 100vh;
-  background: url("../img/sakura.png") center no-repeat;
+  background: url("../img/sakura.png") center no-repeat #f0f0e8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .main_screen_grass img {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
+  transform-origin: bottom;
 }
 
 .main_screen_woman img {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 30px;
 }
@@ -35,7 +39,7 @@ body {
 
 .main_title_back {
   margin-left: 10%;
-  background-color: darkgrey;
+  //background-color: darkgrey;
   height: 40px;
   text-align: center;
   width: 80%;
@@ -43,8 +47,9 @@ body {
 
 
 .main_title {
-  color: #000;
   font-size: 24px;
+  font-weight: 300;
+  text-indent: 5px;
   text-transform: uppercase;
   line-height: 40px;
   width: 100%;
